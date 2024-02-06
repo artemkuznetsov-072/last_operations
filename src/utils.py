@@ -28,7 +28,7 @@ def get_sorted_operations():
 
 def check_sender(sender):
     """
-    Проверяет наличие отправителя
+    Проверяет наличие отправителя и выбирает объект для шифрования
     """
     if sender:
         data = sender.split()
@@ -41,7 +41,7 @@ def check_sender(sender):
 
 def encode_account(data):
     """
-    Шифрует счет приема
+    Шифрует счет
     """
     account_name = '**' + data[-1][-4:]
     return data[0] + ' ' + account_name
@@ -49,11 +49,11 @@ def encode_account(data):
 
 def encode_card(data):
     """
-    Шифрует счет отправления
+    Шифрует карту
     """
     payment_sys = ' '.join(data[:-1]) + ' '
     card_name = data[-1]
-    card_number = card_name[0:4] + ' ' + card_name[5:7] + '** **** ' + card_name[12:]
+    card_number = card_name[0:4] + ' ' + card_name[4:6] + '** **** ' + card_name[12:]
     return payment_sys + card_number
 
 
