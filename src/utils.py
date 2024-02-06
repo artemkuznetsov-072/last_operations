@@ -40,11 +40,17 @@ def check_sender(sender):
 
 
 def encode_account(data):
+    """
+    Шифрует счет приема
+    """
     account_name = '**' + data[-1][-4:]
     return data[0] + ' ' + account_name
 
 
 def encode_card(data):
+    """
+    Шифрует счет отправления
+    """
     payment_sys = ' '.join(data[:-1]) + ' '
     card_name = data[-1]
     card_number = card_name[0:4] + ' ' + card_name[5:7] + '** **** ' + card_name[12:]
@@ -52,6 +58,9 @@ def encode_card(data):
 
 
 def print_date(source_date):
+    """
+    Преобразует дату в нужный формат
+    """
     try:
         datatime = datetime.fromisoformat(source_date)
         return datatime.strftime('%d.%m.%Y')
