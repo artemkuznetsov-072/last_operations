@@ -1,5 +1,4 @@
 from src.utils import get_sorted_operations, check_sender, encode_account, encode_card, print_date
-from datetime import datetime
 
 
 def test_get_sorted_operations():
